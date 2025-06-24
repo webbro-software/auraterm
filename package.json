@@ -1,21 +1,29 @@
 {
   "name": "@webbro-software/auraterm",
-  "private": false,
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A simple, fun, and minimal terminal text styling library — like chalk, but even simpler.",
-  "main": "dist/src/index.js",
-  "types": "dist/src/index.d.ts",
+  "main": "./dist/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js"
+    }
+  },
+  "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "npx tsc",
+    "build": "tsc",
     "test": "node --loader ts-node/esm tests/auraterm.test.ts"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/webbro-software/auraterm.git"
+    "url": "https://github.com/webbro-software/auraterm.git"
   },
   "keywords": [
     "terminal",
-    "color"
+    "color",
+    "style",
+    "text",
+    "cli",
+    "chalk"
   ],
   "author": "Shohruxmirzo Usmonov <usmonovshohruxmirzo@gmail.com>",
   "license": "MIT",
@@ -28,7 +36,7 @@
     "node": ">=14"
   },
   "files": [
-    "dist/",
+    "dist",
     "README.md",
     "LICENSE"
   ],

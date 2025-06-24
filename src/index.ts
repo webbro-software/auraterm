@@ -1,3 +1,2 @@
-import { auraterm } from "./auraterm.ts";
-
+import { auraterm } from "./auraterm.js";
 export { auraterm };

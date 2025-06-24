@@ -1,4 +1,4 @@
-import { codes } from "./codes.ts";
+import { codes } from "./codes.js";
 
 export function applyStyles(styles: string[], text: string): string {
   let openCodes: string = "";
