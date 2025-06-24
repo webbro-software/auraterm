@@ -1,5 +1,6 @@
 {
   "name": "@webbro-software/auraterm",
+  "private": false,
   "version": "1.0.0",
   "description": "A simple, fun, and minimal terminal text styling library — like chalk, but even simpler.",
   "main": "dist/src/index.js",
