@@ -1,5 +1,7 @@
 # 🎨 `auraterm` -  Style terminal output with ease.
 
+![image](https://github.com/user-attachments/assets/cafa8962-cede-4a58-8973-645c6cb1867a)
+
 A minimal, developer-first terminal styling utility.  
 Built for simplicity and joy - style your terminal output with colors, backgrounds, and text decorations using a clean, intuitive API.
 
