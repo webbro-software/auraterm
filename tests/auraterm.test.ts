@@ -1,5 +1,7 @@
 import { auraterm } from "../src/index.ts";
 
+console.log();
+
 console.log(auraterm("green")("[TEST]"), " Red:", auraterm("red")("Red text"));
 console.log(
   auraterm("green")("[TEST]"),
@@ -49,7 +51,7 @@ console.log(
 console.log(
   auraterm("green")("[TEST]"),
   " bgGreen + white:",
-  auraterm("bgGreen", "white")("✅ White on Green")
+  auraterm("bgWhite", "red")("✅ Red on White")
 );
 console.log(
   auraterm("green")("[TEST]"),
