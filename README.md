@@ -20,7 +20,7 @@ Built for simplicity and joy - style your terminal output with colors, backgroun
 ## 📦 Installation
 
 ```bash
-npm install auraterm
+npm install @webbro-software/auraterm
 ```
 
 ---
@@ -28,7 +28,7 @@ npm install auraterm
 ## 🚀 Usage
 
 ```ts
-import { auraterm } from "auraterm";
+import { auraterm } from "@webbro-software/auraterm";
 
 console.log(auraterm("red")("This is red"));
 console.log(auraterm("green", "bold")("Bold green text"));
