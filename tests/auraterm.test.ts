@@ -14,9 +14,9 @@ console.log(auraterm("red")("\nMultiple Combined Styles\n"));
 const combinedTests: string[][] = [
   ["bold", "underline", "red"],
   ["italic", "bgYellow", "black"],
-  ["bold", "italic", "bgCyan", "white"],
+  ["bold", "italic", "bgCyan", "red"],
   ["bgMagenta", "underline", "brightWhite"],
-  ["bgBlue", "bold", "italic", "white"],
+  ["bgRed", "bold", "italic", "white"],
 ];
 
 combinedTests.forEach((styles: string[], i: number) => {
