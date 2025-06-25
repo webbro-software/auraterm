@@ -1,81 +1,26 @@
 import { auraterm } from "../src/index.ts";
+import { codes } from "../src/core/codes.ts";
 
-console.log();
+console.log(auraterm("red")("\nTesting All auraterm Styles\n"));
 
-console.log(auraterm("green")("[TEST]"), " Red:", auraterm("red")("Red text"));
-console.log(
-  auraterm("green")("[TEST]"),
-  " Green + Bold:",
-  auraterm("green", "bold")("Green and bold")
-);
-console.log(
-  auraterm("green")("[TEST]"),
-  " Unknown Style:",
-  auraterm("unknown")("Should be plain")
-);
+Object.entries(codes).forEach(([style]) => {
+  const label: string = auraterm("green")("[TEST]");
+  const result: string = auraterm(style)(`auraterm: ${style}`);
+  console.log(label, result);
+});
 
-console.log(
-  auraterm("green")("[TEST]"),
-  " Mixed Styles:",
-  auraterm(
-    "blue",
-    "italic",
-    "nothing",
-    "bold"
-  )("Blue Italic Bold with invalid skipped")
-);
+console.log(auraterm("red")("\nMultiple Combined Styles\n"));
 
-console.log(
-  auraterm("green")("[TEST]"),
-  " Underline:",
-  auraterm("underline")("Underlined only")
-);
+const combinedTests: string[][] = [
+  ["bold", "underline", "red"],
+  ["italic", "bgYellow", "black"],
+  ["bold", "italic", "bgCyan", "white"],
+  ["bgMagenta", "underline", "brightWhite"],
+  ["bgBlue", "bold", "italic", "white"],
+];
 
-console.log(
-  auraterm("green")("[TEST]"),
-  " No Styles:",
-  auraterm()("Plain text only")
-);
-
-console.log(
-  auraterm("green")("[TEST]"),
-  " Invalid:",
-  auraterm("foo", "bar")("No styling should apply")
-);
-
-console.log(
-  auraterm("green")("[TEST]"),
-  " bgRed:",
-  auraterm("bgRed")("🔥 Red Background")
-);
-console.log(
-  auraterm("green")("[TEST]"),
-  " bgGreen + white:",
-  auraterm("bgWhite", "red")("✅ Red on White")
-);
-console.log(
-  auraterm("green")("[TEST]"),
-  " bgBlue + bold:",
-  auraterm("bgBlue", "bold")("📘 Bold Blue Background")
-);
-console.log(
-  auraterm("green")("[TEST]"),
-  " bgYellow + black + underline:",
-  auraterm("bgYellow", "black", "underline")("⚠️ Warning")
-);
-console.log(
-  auraterm("green")("[TEST]"),
-  " bgMagenta + italic:",
-  auraterm("bgMagenta", "italic")("🎨 Styled")
-);
-
-console.log(
-  auraterm("green")("[TEST]"),
-  " bgCyan + red + bold + underline:",
-  auraterm(
-    "bgCyan",
-    "red",
-    "bold",
-    "underline"
-  )("🧪 Cyan BG, Red Text, Bold & Underlined")
-);
+combinedTests.forEach((styles: string[], i: number) => {
+  const label: string = auraterm("green")(`[COMBO ${i + 1}]`);
+  const result: string = auraterm(...styles)(`Combo: ${styles.join(" + ")}`);
+  console.log(label, result);
+});
