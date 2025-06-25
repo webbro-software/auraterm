@@ -1,10 +1,7 @@
-# 🎨 `auraterm` -  Style terminal output with ease.
+# 🎨 `auraterm` - Style terminal output with ease.
 
 ![image](https://github.com/user-attachments/assets/dd011710-d1ef-4bb4-bc03-bbc4d9423356)
 ![image](https://github.com/user-attachments/assets/44428501-4b08-45f6-a6fb-edddd90515c8)
-
-
-
 
 A minimal, developer-first terminal styling utility.  
 Built for simplicity and joy - style your terminal output with colors, backgrounds, and text decorations using a clean, intuitive API.
@@ -63,17 +60,24 @@ console.log(
 
 ```
 auraterm/
-├── src/
-│   ├── index.ts          # Entry point
-│   ├── auraterm.ts       # Core function
-│   ├── applyStyles.ts    # Style application logic
-│   └── codes.ts          # ANSI escape codes
-├── tests/
-│   └── auraterm.test.ts  # Manual tests for output
-├── dist/                 # Transpiled output (after build)
-├── tsconfig.json
-├── package.json
-└── README.md
+├── dist/                   # 🔧 Compiled output (after build with tsc)
+├── node_modules/           # 📦 Installed dependencies
+├── src/                    # 💡 Source code
+│   ├── core/               # 📌 Core logic module
+│   │   ├── applyStyles.ts  # 🔁 Helper to apply ANSI styles to text
+│   │   └── codes.ts        # 🎨 ANSI escape codes for colors and text styles
+│   ├── auraterm.ts         # 🧠 auraterm main function (uses codes + applyStyles)
+│   ├── index.ts            # 🚪 Entry point that exports `auraterm`
+├── tests/                  # 🧪 Test files
+│   └── auraterm.test.ts    # 🖥️ Manual test cases for all styles
+├── .gitignore              # 🙈 Files to ignore in Git
+├── LICENSE                 # 📜 Project license
+├── package.json            # 📦 NPM configuration
+├── package-lock.json       # 🔒 NPM lockfile for reproducible installs
+├── tsconfig.json           # ⚙️ TypeScript compiler configuration
+├── tsconfig.tsnode.json    # ⚙️ Config for ts-node (testing/debugging)
+└── README.md               # 📘 Project documentation
+
 ```
 
 ---
