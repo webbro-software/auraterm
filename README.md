@@ -137,6 +137,4 @@ We welcome contributions from the community!
 
 ---
 
-## 📄 License
-
-[MIT](./LICENSE)
+## 📄 License [MIT](./LICENSE)
