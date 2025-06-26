@@ -1,7 +1,7 @@
 {
   "name": "@webbro-software/auraterm",
-  "version": "1.0.8",
-  "description": "A simple, fun, and minimal terminal text styling library — like chalk, but even simpler.",
+  "version": "1.0.9",
+  "description": "A simple, fun, and minimal terminal text styling library.",
   "main": "./dist/index.js",
   "exports": {
     ".": {
@@ -10,7 +10,7 @@
   },
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "npx tsc --project tsconfig.json --listEmittedFiles",
     "test": "node --loader ts-node/esm tests/auraterm.test.ts"
   },
   "repository": {
@@ -23,7 +23,7 @@
     "style",
     "text",
     "cli",
-    "chalk"
+    "auraterm"
   ],
   "author": "Shohruxmirzo Usmonov <usmonovshohruxmirzo@gmail.com>",
   "license": "MIT",
