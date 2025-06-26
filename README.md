@@ -1,39 +1,47 @@
-# 🎨 `auraterm` -  Style terminal output with ease.
+# 🎨 `auraterm` - Style terminal output with ease
 
-![image](https://github.com/user-attachments/assets/cafa8962-cede-4a58-8973-645c6cb1867a)
+![auraterm](https://github.com/user-attachments/assets/dd011710-d1ef-4bb4-bc03-bbc4d9423356)
+![auraterm](https://github.com/user-attachments/assets/14ff8077-78b3-4e71-a52c-0fcbce8f7fad)
+![auraterm](https://github.com/user-attachments/assets/60b5529b-7741-4838-85a9-7518e32afec0)
+
 
 A minimal, developer-first terminal styling utility.  
-Built for simplicity and joy - style your terminal output with colors, backgrounds, and text decorations using a clean, intuitive API.
+Built for simplicity and joy — style your terminal output with colors, backgrounds, gradients, and text decorations using a clean, intuitive API.
 
 ---
 
 ## ✨ Features
 
-- 🎯 Tiny, fast, and dependency-free
+- ⚡ Tiny, fast, and dependency-free
 - 💅 Intuitive API: `auraterm("red", "bold")("Hello")`
-- 🎨 Supports foreground colors, background colors, and styles
-- 🧠 Easy to extend
-- 🧪 Perfect for CLI tools or learning projects
+- 🌈 Full gradient support: `gradient:text:red-blue`
+- 🎨 Foreground, background, and styles (bold, italic, etc.)
+- 🧠 Extensible design — add custom styles if needed
+- 🧪 Great for CLI tools, test output, or learning projects
 
 ---
 
 ## 📦 Installation
 
 ```bash
-npm install auraterm
+npm install @webbro-software/auraterm
 ```
 
 ---
 
 ## 🚀 Usage
 
-```ts
-import { auraterm } from "auraterm";
+```js
+import { auraterm } from "@webbro-software/auraterm";
 
 console.log(auraterm("red")("This is red"));
 console.log(auraterm("green", "bold")("Bold green text"));
 console.log(
-  auraterm("bgBlue", "white", "underline")("White text with blue background")
+  auraterm("bgBlue", "white", "underline")("White on blue background")
+);
+console.log(auraterm("gradient:text:red-blue")("Gradient from red to blue"));
+console.log(
+  auraterm("gradient:bg:orange-purple", "white")("Gradient BG with white text")
 );
 ```
 
@@ -44,14 +52,41 @@ console.log(
 ### ✅ Text Colors
 
 `black`, `red`, `green`, `yellow`, `blue`, `magenta`, `cyan`, `white`
+`brightBlack`, `brightRed`, ..., `brightWhite`
 
 ### ✅ Background Colors
 
-`bgBlack`, `bgRed`, `bgGreen`, `bgYellow`, `bgBlue`, `bgMagenta`, `bgCyan`, `bgWhite`
+`bgBlack`, `bgRed`, ..., `bgWhite`
+`bgBrightRed`, ..., `bgBrightWhite`
 
 ### ✅ Text Effects
 
-`bold`, `italic`, `underline`
+`bold`, `dim`, `italic`, `underline`, `blink`, `inverse`, `hidden`, `strikethrough`
+
+### ⚡ Gradient Support
+
+```js
+auraterm("gradient:text:red-blue")("Rainbow text");
+auraterm(
+  "gradient:bg:green-yellow",
+  "black"
+)("Black text on gradient background");
+```
+
+You can use any of the following named colors:
+
+`black`, `red`, `green`, `yellow`, `blue`, `magenta`, `cyan`, `white`,
+`orange`, `purple`, `pink`, `gray`
+
+---
+
+## 🧠 How Gradient Works
+
+To apply gradients:
+
+- Text gradient: `gradient:text:fromColor-toColor`
+- Background gradient: `gradient:bg:fromColor-toColor`
+- Add a solid foreground color with background gradients (e.g. `"white"`, `"black"`)
 
 ---
 
@@ -59,17 +94,17 @@ console.log(
 
 ```
 auraterm/
-├── src/
-│   ├── index.ts          # Entry point
-│   ├── auraterm.ts       # Core function
-│   ├── applyStyles.ts    # Style application logic
-│   └── codes.ts          # ANSI escape codes
-├── tests/
-│   └── auraterm.test.ts  # Manual tests for output
-├── dist/                 # Transpiled output (after build)
-├── tsconfig.json
-├── package.json
-└── README.md
+├── dist/                   # 🔧 Compiled output
+├── src/                    # 💡 Source code
+│   ├── core/               # 🎯 Core logic
+│   │   ├── applyStyles.ts
+│   │   └── codes.ts
+│   ├── auraterm.ts         # 🧠 Main function
+│   ├── index.ts            # 🚪 Entry export
+├── tests/                  # 🧪 Test cases
+├── README.md               # 📘 This doc
+├── package.json            # 📦 Config
+├── tsconfig.json           # ⚙️ TypeScript settings
 ```
 
 ---
@@ -81,7 +116,7 @@ npm install
 npm run test
 ```
 
-You should see styled text printed to your terminal.
+You should see styled text printed with colors, effects, and gradients.
 
 ---
 
@@ -97,17 +132,13 @@ You should see styled text printed to your terminal.
 
 ## 📚 Example Output
 
-```bash
-✅ Green Success
-❌ Red Error
-ℹ️ Blue Info with underline
-```
+![auraterm](https://github.com/user-attachments/assets/dd011710-d1ef-4bb4-bc03-bbc4d9423356)
 
 ---
 
 ## 👤 Author
 
-Made with ❤️ by [@usmonovshohruxmirzo](https://github.com/usmonovshohruxmirzo)
+Made with ❤️ by [@usmonovshohruxmirzo](https://github.com/usmonovshohruxmirzo)  
 Maintained by [WebBro Software](https://github.com/webbro-software)
 
 ---
@@ -121,11 +152,11 @@ We welcome contributions from the community!
 1. 🍴 Fork the repository
 2. 🛠️ Create a new branch: `git checkout -b my-feature`
 3. ✨ Add your changes or improvements
-4. ✅ Make sure it builds and tests pass: `npm run build && npm run test`
+4. ✅ Build and test: `npm run build && npm run test`
 5. 📥 Commit and push: `git commit -m "Add: my awesome feature"`
 6. 📪 Open a pull request
 
-> 💬 For ideas, discussions, or bugs - feel free to open an issue.
+> 💬 Questions or ideas? [Open an issue](https://github.com/webbro-software/auraterm/issues)
 
 ---
 

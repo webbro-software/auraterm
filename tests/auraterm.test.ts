@@ -1,81 +1,58 @@
 import { auraterm } from "../src/index.ts";
+import { codes } from "../src/core/codes.ts";
 
-console.log();
+console.log(auraterm("red")("\nTesting All auraterm Styles\n"));
 
-console.log(auraterm("green")("[TEST]"), " Red:", auraterm("red")("Red text"));
-console.log(
-  auraterm("green")("[TEST]"),
-  " Green + Bold:",
-  auraterm("green", "bold")("Green and bold")
-);
-console.log(
-  auraterm("green")("[TEST]"),
-  " Unknown Style:",
-  auraterm("unknown")("Should be plain")
-);
+Object.entries(codes).forEach(([style]) => {
+  if (style === "gradient") return;
 
-console.log(
-  auraterm("green")("[TEST]"),
-  " Mixed Styles:",
-  auraterm(
-    "blue",
-    "italic",
-    "nothing",
-    "bold"
-  )("Blue Italic Bold with invalid skipped")
-);
+  const label: string = auraterm("green")("[TEST]");
+  const result: string = auraterm(style)(`auraterm: ${style}`);
+  console.log(label, result);
+});
 
-console.log(
-  auraterm("green")("[TEST]"),
-  " Underline:",
-  auraterm("underline")("Underlined only")
-);
+console.log(auraterm("red")("\nMultiple Combined Styles\n"));
 
-console.log(
-  auraterm("green")("[TEST]"),
-  " No Styles:",
-  auraterm()("Plain text only")
-);
+const combinedTests: string[][] = [
+  ["bold", "underline", "red"],
+  ["italic", "bgYellow", "black"],
+  ["bold", "italic", "bgCyan", "red"],
+  ["bgMagenta", "underline", "brightWhite"],
+  ["bgRed", "bold", "italic", "white"],
+];
 
-console.log(
-  auraterm("green")("[TEST]"),
-  " Invalid:",
-  auraterm("foo", "bar")("No styling should apply")
-);
+combinedTests.forEach((styles: string[], i: number) => {
+  const label: string = auraterm("green")(`[COMBO ${i + 1}]`);
+  const result: string = auraterm(...styles)(`Combo: ${styles.join(" + ")}`);
+  console.log(label, result);
+});
 
-console.log(
-  auraterm("green")("[TEST]"),
-  " bgRed:",
-  auraterm("bgRed")("🔥 Red Background")
-);
-console.log(
-  auraterm("green")("[TEST]"),
-  " bgGreen + white:",
-  auraterm("bgWhite", "red")("✅ Red on White")
-);
-console.log(
-  auraterm("green")("[TEST]"),
-  " bgBlue + bold:",
-  auraterm("bgBlue", "bold")("📘 Bold Blue Background")
-);
-console.log(
-  auraterm("green")("[TEST]"),
-  " bgYellow + black + underline:",
-  auraterm("bgYellow", "black", "underline")("⚠️ Warning")
-);
-console.log(
-  auraterm("green")("[TEST]"),
-  " bgMagenta + italic:",
-  auraterm("bgMagenta", "italic")("🎨 Styled")
-);
+console.log(auraterm("red")("\nGradient Text Tests\n"));
 
-console.log(
-  auraterm("green")("[TEST]"),
-  " bgCyan + red + bold + underline:",
-  auraterm(
-    "bgCyan",
-    "red",
-    "bold",
-    "underline"
-  )("🧪 Cyan BG, Red Text, Bold & Underlined")
-);
+const gradientTextTests: [string, string][] = [
+  ["gradient:text:red-blue", "Red to Blue"],
+  ["gradient:text:green-yellow", "Green to Yellow"],
+  ["gradient:text:magenta-cyan", "Magenta to Cyan"],
+  ["gradient:text:orange-purple", "Orange to Purple"],
+];
+
+gradientTextTests.forEach(([style, label], i) => {
+  const testLabel = auraterm("green")(`[GRAD ${i + 1}]`);
+  const result = auraterm(style)(`Gradient: ${label}`);
+  console.log(testLabel, result);
+});
+
+console.log(auraterm("red")("\nGradient Background Tests\n"));
+
+const gradientBgTests: [string, string, string][] = [
+  ["gradient:bg:red-blue", "Red to Blue BG", "black"],
+  ["gradient:bg:green-yellow", "Green to Yellow BG", "black"],
+  ["gradient:bg:black-white", "Black to White BG", "black"],
+  ["gradient:bg:orange-purple", "Orange to Purple BG", "black"],
+];
+
+gradientBgTests.forEach(([style, label, fg], i) => {
+  const testLabel = auraterm("green")(`[GRADBG ${i + 1}]`);
+  const result = auraterm(style, fg)(`  Gradient BG: ${label}  `);
+  console.log(testLabel, result);
+});
