@@ -1,7 +1,9 @@
 # 🎨 `auraterm` - Style terminal output with ease
 
-![auraterm gradient demo](https://github.com/user-attachments/assets/dd011710-d1ef-4bb4-bc03-bbc4d9423356)
-![auraterm all styles demo](https://github.com/user-attachments/assets/14ff8077-78b3-4e71-a52c-0fcbce8f7fad)
+![auraterm](https://github.com/user-attachments/assets/dd011710-d1ef-4bb4-bc03-bbc4d9423356)
+![auraterm](https://github.com/user-attachments/assets/14ff8077-78b3-4e71-a52c-0fcbce8f7fad)
+![auraterm](https://github.com/user-attachments/assets/60b5529b-7741-4838-85a9-7518e32afec0)
+
 
 A minimal, developer-first terminal styling utility.  
 Built for simplicity and joy — style your terminal output with colors, backgrounds, gradients, and text decorations using a clean, intuitive API.
@@ -130,11 +132,7 @@ You should see styled text printed with colors, effects, and gradients.
 
 ## 📚 Example Output
 
-```bash
-✅  green [PASS]
-❌  red [ERROR]
-ℹ️  underline + cyan [INFO]
-```
+![auraterm](https://github.com/user-attachments/assets/dd011710-d1ef-4bb4-bc03-bbc4d9423356)
 
 ---
 
