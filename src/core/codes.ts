@@ -1,3 +1,5 @@
+type RGB = [number, number, number];
+
 export const codes: Record<string, [string, string]> = {
   red: ["\x1b[31m", "\x1b[39m"],
   green: ["\x1b[32m", "\x1b[39m"],
@@ -41,3 +43,30 @@ export const codes: Record<string, [string, string]> = {
   hidden: ["\x1b[8m", "\x1b[28m"],
   strikethrough: ["\x1b[9m", "\x1b[29m"],
 };
+
+export const gradient = {
+  text: (text: string, from: RGB, to: RGB): string => {
+    const len = text.length;
+    return text
+      .split('')
+      .map((char, i) => {
+        const r = Math.round(from[0] + ((to[0] - from[0]) * i) / (len - 1));
+        const g = Math.round(from[1] + ((to[1] - from[1]) * i) / (len - 1));
+        const b = Math.round(from[2] + ((to[2] - from[2]) * i) / (len - 1));
+        return `\x1b[38;2;${r};${g};${b}m${char}`;
+      })
+      .join('') + '\x1b[0m';
+  },
+  bg: (text: string, from: RGB, to: RGB): string => {
+    const len = text.length;
+    return text
+      .split('')
+      .map((char, i) => {
+        const r = Math.round(from[0] + ((to[0] - from[0]) * i) / (len - 1));
+        const g = Math.round(from[1] + ((to[1] - from[1]) * i) / (len - 1));
+        const b = Math.round(from[2] + ((to[2] - from[2]) * i) / (len - 1));
+        return `\x1b[48;2;${r};${g};${b}m${char}`;
+      })
+      .join('') + '\x1b[0m';
+  },
+}
